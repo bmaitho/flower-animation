@@ -1,101 +1,126 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,900&display=swap');
-*{
-    font-family: 'Poppins',cursive;
+/* ===== Reset ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ===== Brand Variables (I ♥ Nzale look) ===== */
+:root{
+  --bg: #F8DEE6;           /* page background */
+  --panel: #F3CBD8;        /* soft panel tint */
+  --primary: #B03060;      /* headings / key accents (raspberry) */
+  --accent: #D8618B;       /* warm pink accent */
+  --text: #7A1E2A;         /* body maroon */
+  --pill: #F7AFC1;         /* button base */
+  --pill-hover: #F29DB3;   /* button hover */
+  --white: #FFFFFF;
+  --shadow: rgba(176,48,96,0.25);
 }
+
+/* ===== Base ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+html, body { height: 100%; }
 body{
-    color: azure;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: black;
-    overflow: hidden;
+  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  overflow: hidden;
+  padding: 24px 16px;
 }
+
+/* ===== Headline Glow (switch from neon-yellow to rose) ===== */
 .greetings{
-    font-size: 6rem;
-    font-weight: 900;
+  font-size: clamp(2.5rem, 6vw, 6rem);
+  font-weight: 800;
+  line-height: 1;
+  text-align: center;
+  color: var(--primary);
 }
 .greetings > span{
-    animation: glow 2.5s ease-in-out infinite;
+  animation: glow 2.6s ease-in-out infinite;
 }
+.greetings > span:nth-child(2){ animation-delay: .2s; }
+.greetings > span:nth-child(3){ animation-delay: .4s; }
+.greetings > span:nth-child(4){ animation-delay: .6s; }
+.greetings > span:nth-child(5){ animation-delay: .8s; }
 @keyframes glow{
-    0%, 100%{
-        color: #fff;
-        text-shadow: 0 0 12px #fbff00, 0 0 50px #fbff00, 0 0 100px #fbff00;
-    }
-    10%, 90%{
-        color: #696565;
-        text-shadow: none;
-    }
-}
-.greetings > span:nth-child(2){
-    animation-delay: .2s ;
-}
-.greetings > span:nth-child(3){
-    animation-delay: .4s ;
-}
-.greetings > span:nth-child(4){
-    animation-delay: .6s;
-}
-.greetings > span:nth-child(5){
-    animation-delay: .8s;
+  0%, 100%{
+    color: var(--primary);
+    text-shadow:
+      0 0 10px var(--panel),
+      0 8px 24px var(--shadow),
+      0 0 40px rgba(216,97,139,0.35);
+  }
+  10%, 90%{
+    color: #9B3B57;
+    text-shadow: none;
+  }
 }
 
+/* ===== Subheading / Description ===== */
 .description{
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+  font-size: clamp(1rem, 1.8vw, 1.35rem);
+  color: var(--text);
+  text-align: center;
+  max-width: 900px;
+  background: var(--white);
+  padding: 14px 18px;
+  border-radius: 16px;
+  box-shadow:
+    0 10px 24px rgba(0,0,0,0.06),
+    0 6px 16px var(--shadow);
+  border: 1px solid rgba(176,48,96,0.08);
 }
 
-.button a{
-    text-decoration: none;
-    font-size: 1rem;
-    color: #111;
+/* ===== CTA Button (pill pink, subtle glow) ===== */
+.button { margin-top: 8px; }
+.button button{
+  border: 0;
+  cursor: pointer;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #6F1220;                 /* text on pill */
+  background: linear-gradient(180deg, var(--pill), var(--panel));
+  box-shadow:
+    0 6px 16px rgba(241, 236, 236, 0.08),
+    0 8px 20px var(--shadow);
+  transition: transform .12s ease, box-shadow .2s ease, background .2s ease;
+}
+.button button:hover{
+  background: linear-gradient(180deg, var(--pill-hover), var(--pill));
+  transform: translateY(-1px);
+  box-shadow:
+    0 10px 22px rgba(0,0,0,0.10),
+    0 10px 24px var(--shadow);
+}
+.button button:active{ transform: translateY(0); }
+.button button a{
+  text-decoration: none;
+  color: inherit;                 /* inherit pill text color */
 }
 
-@media screen and (max-width:574px){
-    .greetings{
-        display: block;
-        font-size: 3rem;
-        font-weight: 500;
-        text-align: center;
-    }
-    .description{
-        font-size: 1rem;
-    }
-    
-    .button a{
-        font-size: .5rem;
-    }
+/* ===== Optional “panel card” for future widgets ===== */
+.card{
+  background: var(--white);
+  border: 1px solid rgba(176,48,96,0.08);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06), 0 8px 20px var(--shadow);
+  padding: 16px;
 }
 
-.description{
-    color: #fbff00;
-}
-
-/* Estilo para el botón */
-.button button {
-    background-color: yellow; /* Fondo amarillo */
-    border: none; /* Sin bordes */
-    padding: 10px 20px; /* Ajusta el relleno según tu preferencia */
-    font-size: 18px; /* Tamaño de fuente */
-    cursor: pointer;
-    position: relative; /* Necesario para el resplandor */
-    border-radius: 20px; /* Esquinas redondeadas */
-    transition: background-color 0.3s ease-in-out; /* Transición suave para el color de fondo */
+/* ===== Responsiveness ===== */
+@media (max-width: 574px){
+  .greetings{
+    font-size: clamp(2rem, 10vw, 3rem);
+    font-weight: 700;
   }
-  
-  /* Estilo para el enlace dentro del botón */
-  .button button a {
-    text-decoration: none; /* Elimina el subrayado del enlace */
-    color: inherit; /* Hereda el color del texto del botón */
-  }
-  
-  /* Efecto de resplandor al pasar el cursor sobre el botón */
-  .button button:hover {
-    background-color: orange; /* Cambia el color de fondo al pasar el mouse a naranja */
-    box-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 30px yellow; /* Efecto de resplandor amarillo */
-  }
-  
-  
+  .description{ font-size: .95rem; padding: 12px 14px; }
+  .button button{ font-size: .9rem; padding: 9px 18px; }
+}
+
+/* ===== Remove legacy dark styles from prior build ===== */
+.night{ display: none !important; }       /* keep page clean; index <body> is simple */
