@@ -7,12 +7,18 @@
   // ===== CONFIG =====
   const PLAYLIST = [
     { src: "img/Pink Matter - Frank Ocean (youtube).mp3", title: "Pink Matter — Frank Ocean" },
-   
-    { src: "img/Brandy & Monica - The Boy Is Mine  Lyrics - Dark City Sounds (youtube).mp3",     title: "" },
+    { src: "img/Brandy & Monica - The Boy Is Mine  Lyrics - Dark City Sounds (youtube).mp3",     title: "The Boy Is Mine" },
     { src: "img/Mitski - My Love Mine All Mine - LatinHype (youtube).mp3",    title: "" },
-    { src: "img/image.mp3",    title: "" },
-    { src: "img/image.mp3",    title: "" },
-    { src: "img/track5.mp3",                     title: "" },
+    { src: "img/girl in red - we fell in love in october (Lyrics) - Dan Music (youtube).mp3",    title: "we fell in love in october" },
+    { src: "img/Best I Ever Had.mp3",    title: "Best I Ever Had" },
+    { src: "  img/ZAYN & Sia - Dusk Till Dawn (Lyrics) - 7clouds (youtube).mp3     ",       title: "  Dusk Till Dawn   " },
+    { src: "img/Drunk In Love - Beyonce (Feat. Jay Z) (Lyrics) 🎵 - Pillow (youtube).mp3",                     title: "Drunk In Love" },
+    { src: " img/Muni Long - Made For Me (Audio) - MuniLongVEVO (youtube).mp3", title: "Made For Me" },
+    { src: "   img/Doja Cat Ft. Nicki Minaj - Streets (Your Love Remix) - JLH Edits (youtube).mp3    ",       title: "  Streets (Your Love Remix " },
+    { src: "    img/The Neighbourhood - Sweater Weather (Lyrics) - 7clouds R&B (youtube).mp3   ",       title: " Sweater Weather  " },
+    { src: "    img/Post Malone - I Like You (A Happier Song) (Audio) ft. Doja Cat - PostMaloneVEVO (youtube).mp3   ",       title: " I Like You  " },
+    { src: "img/John Legend - Tonight (Best You Ever Had) (Official Video) ft. Ludacris - johnlegendVEVO (youtube).mp3",                     title: " Tonight" },
+    { src: "    img/Nicki Minaj - Itty Bitty Piggy (Official Audio) - NickiMinajAtVEVO (youtube).mp3   ",       title: "  Itty Bitty Piggy " },
   ];
 
   const START_VOLUME = Number(localStorage.getItem("ln_audio_vol") ?? 0.9);
